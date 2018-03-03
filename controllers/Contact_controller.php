@@ -53,6 +53,7 @@ class Contact_controller extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
+	
 	public function createcontact(){
 		
 		$this->load->helper('form');
@@ -96,7 +97,10 @@ class Contact_controller extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		//x is the selected choice from index.php
+		
 		$slug=$this->input->post();
+		// echo '>>>>>>posted>>>>>'.var_dump($slug);
+		// exit;
 		$data['contact'] = $this->contact_model->get_contact($slug);
 		
 		
@@ -153,7 +157,18 @@ class Contact_controller extends CI_Controller {
 		}
 	}
  
-	
+		public function searchcontact(){
+		
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		//$data['contact'] = $this->contact_model->get_contact($slug);
+		$data['title'] = 'Search:';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('contactsdb/index');
+		$this->load->view('contactsdb/searchcontact', $data);
+		$this->load->view('templates/footer');
+	}
 
 		
 }
