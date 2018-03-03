@@ -74,7 +74,7 @@ class Contact_model extends CI_Model {
 			// exit;
 			$this->db->where('contact_id', $contacts['contact_id']);
 			// $data is used here as using $contacts array includes the submit value!!
-			$this->db->update('contactsu5', $data); 
+			$this->db->update('contacts2', $data); 
 
 			return $this->db->affected_rows();
 		}
@@ -88,19 +88,19 @@ class Contact_model extends CI_Model {
 					// echo '>>>>>>if>>>>'.var_dump($slug);
 					// exit;
 					if (array_key_exists('x',$slug)){
-						$query = $this->db->get_where('contactsu5', array('contact_id' => $slug['x']));
+						$query = $this->db->get_where('contacts2', array('contact_id' => $slug['x']));
 						//echo '>>>>>>if>>>>'.var_dump($query->result_array());
 					}
 					elseif (array_key_exists('searchby',$slug)){
 						//
-						$query = $this->db->get_where('contactsu5', array($slug['searchby'] => $slug['field']));
+						$query = $this->db->get_where('contacts2', array($slug['searchby'] => $slug['field']));
 						//echo '>>>>>>get modelmmmmmm>>>>'.var_dump($slug['searchby']);
 					//exit;
 					}
 					
 					
 					else{
-						$query = $this->db->get_where('contactsu5', array('last_name' => $slug['last_name']));
+						$query = $this->db->get_where('contacts2', array('last_name' => $slug['last_name']));
 						//echo '>>>>>>else>>>>'.var_dump($query->result_array());
 					}
 					//echo '>>>>>>get model>>>>'.var_dump($query->result_array());
@@ -111,7 +111,7 @@ class Contact_model extends CI_Model {
 				}
 				if ($slug === FALSE)
 				{		
-						$query = $this->db->get('contactsu5');
+						$query = $this->db->get('contacts2');
 						//echo '>>>>>>false>>>>'.var_dump($query->result_array());
 						return $query->result_array();
 				}
@@ -125,7 +125,7 @@ class Contact_model extends CI_Model {
 				if ($slug != NULL)
 				{
 					$query = $this->db->where('first_name',$slug);
-					//$query = $this->db->get('contactsu5');
+					//$query = $this->db->get('contacts2');
 					echo '>>>>>>>>>>'.var_dump($query);
 				//exit;
 					//'contact_id' => $slug))
@@ -133,7 +133,7 @@ class Contact_model extends CI_Model {
 				}
 				if ($slug === FALSE)
 				{
-						$query = $this->db->get('contactsu5');
+						$query = $this->db->get('contacts2');
 						return $query->result_array();
 				}
 
@@ -157,7 +157,7 @@ class Contact_model extends CI_Model {
 			//	echo '>>>>>>>>>>'.var_dump($data);
 			//exit;
 				//contantsu5 altered from news
-			return $this->db->insert('contactsu5', $data);
+			return $this->db->insert('contacts2', $data);
 		}
 		
 		public function hint()
