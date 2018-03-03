@@ -5,7 +5,55 @@ class Contact_model extends CI_Model {
         {
                 $this->load->database();
         }
-		
+		public function ajack($str){
+				//why does changing db create an error.
+			$query = $this->db->get('contacts2');
+			$queryResultArray['contact']=$query->result_array();
+			//echo ".......".var_dump($queryResultArray);
+			//count how many contacts. 
+			$count=count($queryResultArray['contact']);
+			$cut_to_name[]="";$v[]="";
+			$cut_id="";
+			for ($i=0;$i<$count;$i++){
+				//cut to first name so its the beginning of string for searching.
+				$cut_to_name[$i] = array_slice($queryResultArray['contact'][$i],2 , -1);
+				$cut_id = array_slice($queryResultArray['contact'][$i],0 , -10);
+				//echo ".......".var_dump($cut_id);
+				//make string from contact array with firstname at front.
+				$a[$i]=implode("</br>",$cut_to_name[$i])."<form action='http://[::1]/CodeIgniter-3.1.7/index.php/Contact_controller/viewit/editcontact' method='post' accept-charset='utf-8'></br><input 
+				type='hidden' name='x' value='".$cut_id['contact_id']."'/><input class='secondary button' type='submit' name='submit' value='edit contact' /></form></br>";
+			}
+		//names below left for testing.
+			$a[] = "Anna blue";
+			$a[] = "Brittany";
+			$a[] = "Cinderella";
+			// get the str parameter from URL
+			$q = $str;//$_REQUEST["q"];
+
+			$hint = "";
+
+			// lookup all hints from array if $q is different from ""
+			// this code is used from https://www.w3schools.com/xml/ajax_php.asp.
+			if ($q !== "") {
+				$q = strtolower($q);
+				$len=strlen($q);
+				$len2=substr_count($q,' ');
+				//echo ".......".var_dump($len2);
+				foreach($a as $name) {
+					if (stristr($q, substr($name, 0, $len))) {
+						if ($hint === "") {
+							$hint = $name;
+						} else {
+							$hint .= " $name";
+						}
+					}
+				}
+			}
+
+			// Output "no suggestion" if no hint was found or output correct values 
+			echo $hint === "" ? "no suggestion" : $hint;
+	
+		}
 		public function update_contact($contacts)
 		{
 			$data = array(
