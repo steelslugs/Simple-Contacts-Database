@@ -1,7 +1,7 @@
 <h2><?php echo $title; ?></h2>
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('Contact_controller/updatecontact','');?>
+<?php echo form_open('Contact_controller/viewit/updatecontact','');?>
 		<?php foreach ($contact as $contacts): ?>
 				<div >
 					<?php foreach ($contacts as $c_key => $c_value): ?>
