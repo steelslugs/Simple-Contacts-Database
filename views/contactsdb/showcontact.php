@@ -9,7 +9,7 @@
 		// tag and structure so first/last name address?? is presented
 		// 
 		?>
-		<?php echo form_open('Contact_controller/editcontact','');?>
+		<?php echo form_open('Contact_controller/viewit/editcontact','');?>
 				<div >
 				<?php foreach ($contacts as $c_key => $c_value): ?>
 				<?php
