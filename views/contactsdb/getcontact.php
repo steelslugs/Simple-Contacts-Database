@@ -1,7 +1,7 @@
 <h2><?php echo $title; ?></h2>
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('Contact_controller/showcontact'); ?>
+<?php echo form_open('Contact_controller/viewit/showcontact'); ?>
 
     <div>Field:
 	<?php
