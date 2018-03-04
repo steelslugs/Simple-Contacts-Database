@@ -7,7 +7,7 @@
 Get All Contacts</a>
 
 <a class="button" href="
-<?php echo site_url('Contact_controller/viewit/getcontact'); ?>">
+<?php echo site_url('Contact_controller/viewit/getcontactbyfield'); ?>">
 Get Contact by Field</a>
 
 <a class="button" href="
