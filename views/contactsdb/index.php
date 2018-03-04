@@ -3,11 +3,11 @@
 
 
 <a class="button" href="
-<?php echo site_url('Contact_controller/getallcontact'); ?>">
+<?php echo site_url('Contact_controller/viewit/getallcontact'); ?>">
 Get All Contacts</a>
 
 <a class="button" href="
-<?php echo site_url('Contact_controller/getcontact'); ?>">
+<?php echo site_url('Contact_controller/viewit/getcontact'); ?>">
 Get Contact by Field</a>
 
 <a class="button" href="
@@ -15,5 +15,5 @@ Get Contact by Field</a>
 Create Contact</a>
 
 <a class="button" href="
-<?php echo site_url('Contact_controller/searchcontact'); ?>">
+<?php echo site_url('Contact_controller/viewit/searchcontact'); ?>">
 Search Contact</a>
